@@ -35,6 +35,7 @@ As mentioned before, this app is created using Python 3.13 and FastAPI. So make 
 6. Create the base schema: I created a cli tool to create/drop the base schema. I started wanting to show-off. Also, I have a fixation with CLI tools. That said, I created a "Production Ready" version of the schema. **So please use the `schema.sql` to create the app data model instead.**
 
 7. Import the base data: Open up any SQL Tool of your choice. Run `data.sql` to load all the base Service hierarchy data. I also wanted to add this step to the CLI tool, but _ain't nobody got time for that_
+
 ![ain't nobody got time for that](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXo2OGZrb203eWhhNnpndm5tYnFrbTBrZ2d2ZW55bWd5cmxwY3V1ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bWM2eWYfN3r20/giphy.gif)
 
 8. Run the API:
