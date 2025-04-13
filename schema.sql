@@ -1,13 +1,13 @@
 CREATE TYPE appointmentstate AS ENUM ('SCHEDULED', 'COMPLETED', 'CANCELED');
 
 CREATE TABLE category (
-  id SERIAL PRIMARY KEY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name character varying NOT NULL,
   UNIQUE (name)
 );
 
 CREATE TABLE service (
-  id SERIAL PRIMARY KEY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name character varying NOT NULL,
   description character varying,
   category_id integer,
@@ -16,7 +16,7 @@ CREATE TABLE service (
 );
 
 CREATE TABLE product (
-  id SERIAL PRIMARY KEY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name character varying NOT NULL,
   markup numeric NOT NULL,
   supplier character varying,
@@ -25,14 +25,14 @@ CREATE TABLE product (
 );
 
 CREATE TABLE customer (
-  id SERIAL PRIMARY KEY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name character varying NOT NULL,
   email character varying NOT NULL,
   UNIQUE (email)
 );
 
 CREATE TABLE medspa (
-  id SERIAL PRIMARY KEY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name character varying NOT NULL,
   address character varying,
   phone character varying,
@@ -41,7 +41,7 @@ CREATE TABLE medspa (
 );
 
 CREATE TABLE medspaservice (
-  id SERIAL PRIMARY KEY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   medspa_id integer,
   service_id integer,
   created_at timestamp without time zone NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE medspaservice (
 );
 
 CREATE TABLE appointment (
-  id SERIAL PRIMARY KEY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   start_time timestamp without time zone NOT NULL,
   medspa_id integer,
   customer_id integer,
@@ -61,7 +61,7 @@ CREATE TABLE appointment (
 );
 
 CREATE TABLE appointmenthistory (
-  id SERIAL PRIMARY KEY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   state appointmentstate NOT NULL,
   created_at timestamp without time zone NOT NULL,
   appointment_id integer,
@@ -70,7 +70,7 @@ CREATE TABLE appointmenthistory (
 );
 
 CREATE TABLE procedure (
-  id SERIAL PRIMARY KEY,
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   appointment_id integer,
   medspaservice_id integer,
   FOREIGN KEY (appointment_id) REFERENCES appointment (id),
